@@ -1,3 +1,19 @@
+# build intermediaries
+# *.o
+*.lo
+*.slo
+*.obj
+
+# precompiled headers
+*.gch
+*.pch
+
+# compiled dynamic libs
+*.so
+
+# compiled static libs
+*.a
+
 # temporaries
 *.pyc
 *.cache
