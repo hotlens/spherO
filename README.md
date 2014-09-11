@@ -13,3 +13,10 @@ libunicap
 
 libunicapgtk
 ------------
+
+    sudo apt-get install libgtk2.0-dev libxv-dev
+
+libucil
+-------
+
+    sudo apt-get install intltool

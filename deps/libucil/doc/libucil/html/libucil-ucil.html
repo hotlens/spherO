@@ -1,0 +1,1191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ucil</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="UCIL Reference Manual">
+<link rel="up" href="ch01.html" title="UCIL">
+<link rel="prev" href="libucil-draw.html" title="draw">
+<link rel="next" href="libucil-ucil-version.html" title="ucil_version">
+<meta name="generator" content="GTK-Doc V1.14 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libucil-draw.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">UCIL Reference Manual</th>
+<td><a accesskey="n" href="libucil-ucil-version.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libucil-ucil.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libucil-ucil.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="ucil">
+<a name="libucil-ucil"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libucil-ucil.top_of_page"></a>ucil</span></h2>
+<p>ucil</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libucil-ucil.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="libucil-ucil.html#UCIL-FOURCC:CAPS" title="UCIL_FOURCC()">UCIL_FOURCC</a>                         (a,
+                                                         b,
+                                                         c,
+                                                         d)
+typedef             <a class="link" href="libucil-ucil.html#ucil-rgb24-t" title="ucil_rgb24_t">ucil_rgb24_t</a>;
+struct              <a class="link" href="libucil-ucil.html#ucil-rgb32" title="struct ucil_rgb32">ucil_rgb32</a>;
+typedef             <a class="link" href="libucil-ucil.html#ucil-rgb32-t" title="ucil_rgb32_t">ucil_rgb32_t</a>;
+struct              <a class="link" href="libucil-ucil.html#ucil-yuv" title="struct ucil_yuv">ucil_yuv</a>;
+typedef             <a class="link" href="libucil-ucil.html#ucil-yuv-t" title="ucil_yuv_t">ucil_yuv_t</a>;
+struct              <a class="link" href="libucil-ucil.html#ucil-y8" title="struct ucil_y8">ucil_y8</a>;
+typedef             <a class="link" href="libucil-ucil.html#ucil-y8-t" title="ucil_y8_t">ucil_y8_t</a>;
+struct              <a class="link" href="libucil-ucil.html#ucil-color" title="struct ucil_color">ucil_color</a>;
+typedef             <a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t">ucil_color_t</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libucil-ucil.html#ucil-convolution-mask" title="ucil_convolution_mask ()">ucil_convolution_mask</a>               (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-convolution-mask-t" title="ucil_convolution_mask_t"><span class="type">ucil_convolution_mask_t</span></a> *mask</code></em>);
+typedef             <a class="link" href="libucil-ucil.html#ucil-convolution-mask-t" title="ucil_convolution_mask_t">ucil_convolution_mask_t</a>;
+struct              <a class="link" href="libucil-ucil.html#ucil-font-object" title="struct ucil_font_object">ucil_font_object</a>;
+typedef             <a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t">ucil_font_object_t</a>;
+struct              <a class="link" href="libucil-ucil.html#ucil-video-file-object" title="struct ucil_video_file_object">ucil_video_file_object</a>;
+typedef             <a class="link" href="libucil-ucil.html#ucil-video-file-object-t" title="ucil_video_file_object_t">ucil_video_file_object_t</a>;
+<span class="returnvalue">unicap_status_t</span>     <a class="link" href="libucil-ucil.html#ucil-check-version" title="ucil_check_version ()">ucil_check_version</a>                  (<em class="parameter"><code>unsigned <span class="type">int</span> major</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> minor</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> micro</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-draw.html#ucil-set-pixel" title="ucil_set_pixel ()">ucil_set_pixel</a>                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-ucil.html#ucil-set-pixel-alpha" title="ucil_set_pixel_alpha ()">ucil_set_pixel_alpha</a>                (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> alpha</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-draw.html#ucil-draw-line" title="ucil_draw_line ()">ucil_draw_line</a>                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x2</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y2</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-draw.html#ucil-draw-rect" title="ucil_draw_rect ()">ucil_draw_rect</a>                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x2</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y2</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-draw.html#ucil-fill" title="ucil_fill ()">ucil_fill</a>                           (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-draw.html#ucil-draw-box" title="ucil_draw_box ()">ucil_draw_box</a>                       (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x2</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y2</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-ucil.html#ucil-draw-circle" title="ucil_draw_circle ()">ucil_draw_circle</a>                    (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> cx</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> cy</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> r</code></em>);
+<a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="returnvalue">ucil_font_object_t</span></a> * <a class="link" href="libucil-ucil.html#ucil-create-font-object" title="ucil_create_font_object ()">ucil_create_font_object</a>            (<em class="parameter"><code><span class="type">int</span> size</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *font</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-ucil.html#ucil-draw-text" title="ucil_draw_text ()">ucil_draw_text</a>                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="type">ucil_font_object_t</span></a> *fobj</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-ucil.html#ucil-destroy-font-object" title="ucil_destroy_font_object ()">ucil_destroy_font_object</a>            (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="type">ucil_font_object_t</span></a> *fobj</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-ucil.html#ucil-text-get-size" title="ucil_text_get_size ()">ucil_text_get_size</a>                  (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="type">ucil_font_object_t</span></a> *fobj</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *height</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-ucil.html#ucil-get-pixel" title="ucil_get_pixel ()">ucil_get_pixel</a>                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-draw.html#ucil-convert-color" title="ucil_convert_color ()">ucil_convert_color</a>                  (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *src</code></em>);
+<span class="returnvalue">unicap_status_t</span>     <a class="link" href="libucil-ucil.html#ucil-convert-buffer" title="ucil_convert_buffer ()">ucil_convert_buffer</a>                 (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *src</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="libucil-ucil.html#ucil-conversion-supported" title="ucil_conversion_supported ()">ucil_conversion_supported</a>           (<em class="parameter"><code>unsigned <span class="type">int</span> dest_fourcc</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> src_fourcc</code></em>);
+<span class="returnvalue">ucil_colorspace_t</span>   <a class="link" href="libucil-ucil.html#ucil-get-colorspace-from-fourcc" title="ucil_get_colorspace_from_fourcc ()">ucil_get_colorspace_from_fourcc</a>     (<em class="parameter"><code>unsigned <span class="type">int</span> fourcc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libucil-ucil.html#ucil-blend-alpha" title="ucil_blend_alpha ()">ucil_blend_alpha</a>                    (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *bg</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *fg</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> alpha</code></em>);
+<a class="link" href="libucil-ucil.html#ucil-convolution-mask-t" title="ucil_convolution_mask_t"><span class="returnvalue">ucil_convolution_mask_t</span></a> * <a class="link" href="libucil-ucil.html#ucil-create-convolution-mask" title="ucil_create_convolution_mask ()">ucil_create_convolution_mask</a>  (<em class="parameter"><code>unsigned <span class="type">char</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> size</code></em>,
+                                                         <em class="parameter"><code><span class="type">ucil_colorspace_t</span> cs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> mode</code></em>);
+<a class="link" href="libucil-ucil.html#ucil-video-file-object-t" title="ucil_video_file_object_t"><span class="returnvalue">ucil_video_file_object_t</span></a> * <a class="link" href="libucil-ucil.html#ucil-create-video-file" title="ucil_create_video_file ()">ucil_create_video_file</a>       (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-format-t"><span class="type">unicap_format_t</span></a> *format</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *codec</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">unicap_status_t</span>     <a class="link" href="libucil-ucil.html#ucil-encode-frame" title="ucil_encode_frame ()">ucil_encode_frame</a>                   (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-video-file-object-t" title="ucil_video_file_object_t"><span class="type">ucil_video_file_object_t</span></a> *vobj</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *buffer</code></em>);
+<span class="returnvalue">unicap_status_t</span>     <a class="link" href="libucil-ucil.html#ucil-close-video-file" title="ucil_close_video_file ()">ucil_close_video_file</a>               (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-video-file-object-t" title="ucil_video_file_object_t"><span class="type">ucil_video_file_object_t</span></a> *vobj</code></em>);
+<span class="returnvalue">unicap_status_t</span>     <a class="link" href="libucil-ucil.html#ucil-open-video-file" title="ucil_open_video_file ()">ucil_open_video_file</a>                (<em class="parameter"><code><span class="type">unicap_handle_t</span> *unicap_handle</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *filename</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="libucil-ucil.html#ucil-get-video-file-extension" title="ucil_get_video_file_extension ()">ucil_get_video_file_extension</a>       (<em class="parameter"><code>const <span class="type">char</span> *codec</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libucil-ucil.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libucil-ucil.details"></a><h2>Details</h2>
+<div class="refsect2" title="UCIL_FOURCC()">
+<a name="UCIL-FOURCC:CAPS"></a><h3>UCIL_FOURCC()</h3>
+<pre class="programlisting">#define UCIL_FOURCC(a,b,c,d) (unsigned int)((((unsigned int)d)&lt;&lt;24)+(((unsigned int)c)&lt;&lt;16)+(((unsigned int)b)&lt;&lt;8)+a)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>d</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_rgb24_t">
+<a name="ucil-rgb24-t"></a><h3>ucil_rgb24_t</h3>
+<pre class="programlisting">typedef struct _ucil_rgb24 ucil_rgb24_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="struct ucil_rgb32">
+<a name="ucil-rgb32"></a><h3>struct ucil_rgb32</h3>
+<pre class="programlisting">struct ucil_rgb32 {
+      unsigned char r;
+      unsigned char g;
+      unsigned char b;
+      unsigned char a;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ucil_rgb32_t">
+<a name="ucil-rgb32-t"></a><h3>ucil_rgb32_t</h3>
+<pre class="programlisting">typedef struct _ucil_rgb32 ucil_rgb32_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="struct ucil_yuv">
+<a name="ucil-yuv"></a><h3>struct ucil_yuv</h3>
+<pre class="programlisting">struct ucil_yuv {
+      unsigned char y;
+      unsigned char u;
+      unsigned char v;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ucil_yuv_t">
+<a name="ucil-yuv-t"></a><h3>ucil_yuv_t</h3>
+<pre class="programlisting">typedef struct _ucil_yuv ucil_yuv_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="struct ucil_y8">
+<a name="ucil-y8"></a><h3>struct ucil_y8</h3>
+<pre class="programlisting">struct ucil_y8 {
+      unsigned char y;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ucil_y8_t">
+<a name="ucil-y8-t"></a><h3>ucil_y8_t</h3>
+<pre class="programlisting">typedef struct _ucil_y8 ucil_y8_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="struct ucil_color">
+<a name="ucil-color"></a><h3>struct ucil_color</h3>
+<pre class="programlisting">struct ucil_color {
+      ucil_colorspace_t colorspace;
+      
+      union
+      {
+	    ucil_yuv_t yuv;
+	    ucil_rgb24_t rgb24;
+	    ucil_rgb32_t rgb32;
+	    ucil_y8_t y8;
+      };
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ucil_color_t">
+<a name="ucil-color-t"></a><h3>ucil_color_t</h3>
+<pre class="programlisting">typedef struct _ucil_color ucil_color_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ucil_convolution_mask ()">
+<a name="ucil-convolution-mask"></a><h3>ucil_convolution_mask ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_convolution_mask               (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-convolution-mask-t" title="ucil_convolution_mask_t"><span class="type">ucil_convolution_mask_t</span></a> *mask</code></em>);</pre>
+<p>
+Apply a convolution mask
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>target buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>source buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mask</code></em> :</span></p></td>
+<td>an <a class="link" href="libucil-ucil.html#ucil-convolution-mask" title="ucil_convolution_mask ()"><span class="type">ucil_convolution_mask</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_convolution_mask_t">
+<a name="ucil-convolution-mask-t"></a><h3>ucil_convolution_mask_t</h3>
+<pre class="programlisting">typedef struct _ucil_convolution_mask ucil_convolution_mask_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="struct ucil_font_object">
+<a name="ucil-font-object"></a><h3>struct ucil_font_object</h3>
+<pre class="programlisting">struct ucil_font_object {
+      void *context;
+      void *layout;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ucil_font_object_t">
+<a name="ucil-font-object-t"></a><h3>ucil_font_object_t</h3>
+<pre class="programlisting">typedef struct _ucil_font_object ucil_font_object_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="struct ucil_video_file_object">
+<a name="ucil-video-file-object"></a><h3>struct ucil_video_file_object</h3>
+<pre class="programlisting">struct ucil_video_file_object {
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ucil_video_file_object_t">
+<a name="ucil-video-file-object-t"></a><h3>ucil_video_file_object_t</h3>
+<pre class="programlisting">typedef struct _ucil_video_file_object ucil_video_file_object_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ucil_check_version ()">
+<a name="ucil-check-version"></a><h3>ucil_check_version ()</h3>
+<pre class="programlisting"><span class="returnvalue">unicap_status_t</span>     ucil_check_version                  (<em class="parameter"><code>unsigned <span class="type">int</span> major</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> minor</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> micro</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>micro</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_set_pixel ()">
+<a name="ucil-set-pixel"></a><h3>ucil_set_pixel ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_set_pixel                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>);</pre>
+<p>
+Draws a pixel on the data buffer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_buffer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_set_pixel_alpha ()">
+<a name="ucil-set-pixel-alpha"></a><h3>ucil_set_pixel_alpha ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_set_pixel_alpha                (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> alpha</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>);</pre>
+<p>
+Draws a pixel on the data buffer, applying an alpha ( transparency
+) value to the pixel.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_buffer</code></em> :</span></p></td>
+<td>target buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>an <a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a>. The colorspace of the color has to match
+the colorspace of the data_buffer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alpha</code></em> :</span></p></td>
+<td>the alpha value that should be applied to this pixel
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>x position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>y position
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_draw_line ()">
+<a name="ucil-draw-line"></a><h3>ucil_draw_line ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_draw_line                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x2</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y2</code></em>);</pre>
+<p>
+Draws a line on the data buffer. The endpoints are clipped to the
+buffer dimensions
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_buffer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_draw_rect ()">
+<a name="ucil-draw-rect"></a><h3>ucil_draw_rect ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_draw_rect                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x2</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y2</code></em>);</pre>
+<p>
+Draws a rectangle filled with color.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_buffer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_fill ()">
+<a name="ucil-fill"></a><h3>ucil_fill ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_fill                           (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>);</pre>
+<p>
+Fill the buffer with a color.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_buffer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_draw_box ()">
+<a name="ucil-draw-box"></a><h3>ucil_draw_box ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_draw_box                       (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y1</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x2</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y2</code></em>);</pre>
+<p>
+Draws a box
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_buffer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_draw_circle ()">
+<a name="ucil-draw-circle"></a><h3>ucil_draw_circle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_draw_circle                    (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> cx</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> cy</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> r</code></em>);</pre>
+<p>
+Draws a circle.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>an <a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a>. The colorspace of the color has to match
+the colorspace of the data_buffer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cx</code></em> :</span></p></td>
+<td>center of the circle ( x position )
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cy</code></em> :</span></p></td>
+<td>center of the circle ( y position )
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>radius
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_create_font_object ()">
+<a name="ucil-create-font-object"></a><h3>ucil_create_font_object ()</h3>
+<pre class="programlisting"><a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="returnvalue">ucil_font_object_t</span></a> * ucil_create_font_object            (<em class="parameter"><code><span class="type">int</span> size</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *font</code></em>);</pre>
+<p>
+Creates a font object required for text operations. The application
+must free the font object with <a class="link" href="libucil-ucil.html#ucil-destroy-font-object" title="ucil_destroy_font_object ()"><span class="type">ucil_destroy_font_object</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>size of font in points
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
+<td>name of font or NULL to use default font
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="type">ucil_font_object_t</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_draw_text ()">
+<a name="ucil-draw-text"></a><h3>ucil_draw_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_draw_text                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="type">ucil_font_object_t</span></a> *fobj</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>);</pre>
+<p>
+Draws a text string onto the target buffer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>target buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>an <a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a>. The colorspace of the color has to match
+the colorspace of the data_buffer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fobj</code></em> :</span></p></td>
+<td>an <a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="type">ucil_font_object_t</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>text string to draw
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>x position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>y position
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_destroy_font_object ()">
+<a name="ucil-destroy-font-object"></a><h3>ucil_destroy_font_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_destroy_font_object            (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="type">ucil_font_object_t</span></a> *fobj</code></em>);</pre>
+<p>
+Frees all resources allocated by the font object
+</p>
+</div>
+<hr>
+<div class="refsect2" title="ucil_text_get_size ()">
+<a name="ucil-text-get-size"></a><h3>ucil_text_get_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_text_get_size                  (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="type">ucil_font_object_t</span></a> *fobj</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *height</code></em>);</pre>
+<p>
+Determines the size in pixels a text string will take up when drawn
+onto a buffer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fobj</code></em> :</span></p></td>
+<td>an <a class="link" href="libucil-ucil.html#ucil-font-object-t" title="ucil_font_object_t"><span class="type">ucil_font_object_t</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>text string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>pointer to int which will receive the width of the text
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>pointer to int which will receive the height of the text
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_get_pixel ()">
+<a name="ucil-get-pixel"></a><h3>ucil_get_pixel ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_get_pixel                      (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *data_buffer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *color</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>);</pre>
+<p>
+Reads the pixel at position (x,y) and stores the result in <em class="structfield"><code>color</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_buffer</code></em> :</span></p></td>
+<td>buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>pointer to an <a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> to store the result
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>x position 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>y position
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_convert_color ()">
+<a name="ucil-convert-color"></a><h3>ucil_convert_color ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_convert_color                  (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-color-t" title="ucil_color_t"><span class="type">ucil_color_t</span></a> *src</code></em>);</pre>
+<p>
+Convert colors between colorspaces. The
+<em class="structfield"><code>colorspace</code></em> field of
+<span class="structname">dest</span> needs to be set to the target
+colorspace, like in this example:
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+src.colorspace = UCIL_COLORSPACE_RGB24;
+src.rgb24.r = 0xff;
+src.rgb24.g = 0xff;
+src.rgb24.b = 0xff;
+dest.colorspace = UCIL_COLORSPACE_YUV;
+ucil_convert_color( &amp;dest, &amp;src );
+ </pre></div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_convert_buffer ()">
+<a name="ucil-convert-buffer"></a><h3>ucil_convert_buffer ()</h3>
+<pre class="programlisting"><span class="returnvalue">unicap_status_t</span>     ucil_convert_buffer                 (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *src</code></em>);</pre>
+<p>
+Convert the colorspace of a data buffer. The colorspaces are
+denoted by the <em class="structfield"><code>buffer.format.fourcc</code></em>
+field. The dest-&gt;format.fourcc gets set to the correct value.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>target buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>source buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> STATUS_SUCCESS if the buffer could be converted
+successfully. STATUS_FAILURE if no conversion exists.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_conversion_supported ()">
+<a name="ucil-conversion-supported"></a><h3>ucil_conversion_supported ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 ucil_conversion_supported           (<em class="parameter"><code>unsigned <span class="type">int</span> dest_fourcc</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> src_fourcc</code></em>);</pre>
+<p>
+Tests whether a specific conversion is supported.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest_fourcc</code></em> :</span></p></td>
+<td>target fourcc
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src_fourcc</code></em> :</span></p></td>
+<td>source fourcc
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 1 when the conversion is supported
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_get_colorspace_from_fourcc ()">
+<a name="ucil-get-colorspace-from-fourcc"></a><h3>ucil_get_colorspace_from_fourcc ()</h3>
+<pre class="programlisting"><span class="returnvalue">ucil_colorspace_t</span>   ucil_get_colorspace_from_fourcc     (<em class="parameter"><code>unsigned <span class="type">int</span> fourcc</code></em>);</pre>
+<p>
+Gets the <span class="type">ucil_colorspace_t</span> that matches the fourcc.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fourcc</code></em> :</span></p></td>
+<td>fourcc
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an <span class="type">ucil_colorspace_t</span>. This is UCIL_COLORSPACE_UNKNOWN
+when no conversion exists.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_blend_alpha ()">
+<a name="ucil-blend-alpha"></a><h3>ucil_blend_alpha ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ucil_blend_alpha                    (<em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *bg</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *fg</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> alpha</code></em>);</pre>
+<p>
+Blends two buffers into a target buffer. Colorspaces of buffers
+should match.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>target buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bg</code></em> :</span></p></td>
+<td>background buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fg</code></em> :</span></p></td>
+<td>foreground buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alpha</code></em> :</span></p></td>
+<td>transparency value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_create_convolution_mask ()">
+<a name="ucil-create-convolution-mask"></a><h3>ucil_create_convolution_mask ()</h3>
+<pre class="programlisting"><a class="link" href="libucil-ucil.html#ucil-convolution-mask-t" title="ucil_convolution_mask_t"><span class="returnvalue">ucil_convolution_mask_t</span></a> * ucil_create_convolution_mask  (<em class="parameter"><code>unsigned <span class="type">char</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> size</code></em>,
+                                                         <em class="parameter"><code><span class="type">ucil_colorspace_t</span> cs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> mode</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_create_video_file ()">
+<a name="ucil-create-video-file"></a><h3>ucil_create_video_file ()</h3>
+<pre class="programlisting"><a class="link" href="libucil-ucil.html#ucil-video-file-object-t" title="ucil_video_file_object_t"><span class="returnvalue">ucil_video_file_object_t</span></a> * ucil_create_video_file       (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-format-t"><span class="type">unicap_format_t</span></a> *format</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *codec</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Creates a video file to be used for video recording. After
+creation, add frames to the video file with <a class="link" href="libucil-ucil.html#ucil-encode-frame" title="ucil_encode_frame ()"><span class="type">ucil_encode_frame</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>filename with full path
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>image format of individual frames
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>codec</code></em> :</span></p></td>
+<td>codec name or NULL to use default codec
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A new <a class="link" href="libucil-ucil.html#ucil-video-file-object-t" title="ucil_video_file_object_t"><span class="type">ucil_video_file_object_t</span></a> or NULL on error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_encode_frame ()">
+<a name="ucil-encode-frame"></a><h3>ucil_encode_frame ()</h3>
+<pre class="programlisting"><span class="returnvalue">unicap_status_t</span>     ucil_encode_frame                   (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-video-file-object-t" title="ucil_video_file_object_t"><span class="type">ucil_video_file_object_t</span></a> *vobj</code></em>,
+                                                         <em class="parameter"><code><a href="../libunicap/libunicap-unicap.html#unicap-data-buffer-t"><span class="type">unicap_data_buffer_t</span></a> *buffer</code></em>);</pre>
+<p>
+Adds a frame to a video file.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vobj</code></em> :</span></p></td>
+<td>a video file object
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td>data buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> STATUS_SUCCESS if the frame got added successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_close_video_file ()">
+<a name="ucil-close-video-file"></a><h3>ucil_close_video_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">unicap_status_t</span>     ucil_close_video_file               (<em class="parameter"><code><a class="link" href="libucil-ucil.html#ucil-video-file-object-t" title="ucil_video_file_object_t"><span class="type">ucil_video_file_object_t</span></a> *vobj</code></em>);</pre>
+<p>
+Close a video file created with <a class="link" href="libucil-ucil.html#ucil-create-video-file" title="ucil_create_video_file ()"><span class="type">ucil_create_video_file</span></a>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vobj</code></em> :</span></p></td>
+<td>an <a class="link" href="libucil-ucil.html#ucil-video-file-object" title="struct ucil_video_file_object"><span class="type">ucil_video_file_object</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_open_video_file ()">
+<a name="ucil-open-video-file"></a><h3>ucil_open_video_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">unicap_status_t</span>     ucil_open_video_file                (<em class="parameter"><code><span class="type">unicap_handle_t</span> *unicap_handle</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *filename</code></em>);</pre>
+<p>
+Opens a video file for playback. The resulting handle can be used
+like a video capture device.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>unicap_handle</code></em> :</span></p></td>
+<td>pointer to an <span class="type">unicap_handle_t</span> where the new handle
+gets stored. 
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>full path of the video file
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="ucil_get_video_file_extension ()">
+<a name="ucil-get-video-file-extension"></a><h3>ucil_get_video_file_extension ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        ucil_get_video_file_extension       (<em class="parameter"><code>const <span class="type">char</span> *codec</code></em>);</pre>
+<p>
+Get the file extension of a codec. Eg. for the "ogg/theora" codec,
+this will return "ogg". The returned string is owned by ucil and
+should not be freed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>codec</code></em> :</span></p></td>
+<td>codec name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> string
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.14</div>
+</body>
+</html>
