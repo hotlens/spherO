@@ -4,6 +4,11 @@ spherO
 Dependencies
 ============
 
+General
+-------
+
+    sudo apt-get install build-essential autoconf libgtkmm-2.4-dev
+
 libunicap
 ---------
 
