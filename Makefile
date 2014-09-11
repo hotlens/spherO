@@ -11,4 +11,7 @@ test_main:
 
 .PHONY: clean
 clean:
-	rm test
+	-rm test_main
+	-cd deps/libucil && make clean
+	-cd deps/libunicap && make clean
+	-cd deps/libunicapgtk && make clean

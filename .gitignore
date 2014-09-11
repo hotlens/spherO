@@ -1,5 +1,5 @@
 # build intermediaries
-# *.o
+*.o
 *.lo
 *.slo
 *.obj
@@ -20,7 +20,17 @@
 *.swp
 
 # autotools generated
-deps/libunicap/configure
+deps/*/config*
+deps/*/configure
+deps/*/cpi
+deps/*/po
+deps/*/stamp-h1
+deps/*/libtool
+deps/*/*.pc
+deps/*/**/Makefile*
+deps/**/*.la
+.deps
+.libs
 
 # targets
 test_main
