@@ -1,0 +1,1260 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libunicap-unicap">
+<refmeta>
+<refentrytitle role="top_of_page" id="libunicap-unicap.top_of_page">unicap</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>
+  LIBUNICAP Library
+</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>unicap</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libunicap-unicap.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>enum                <link linkend="unicap-buffer-type-t">unicap_buffer_type_t</link>;
+                    <link linkend="unicap-device-t">unicap_device_t</link>;
+                    <link linkend="unicap-rect-t">unicap_rect_t</link>;
+                    <link linkend="unicap-format-t">unicap_format_t</link>;
+                    <link linkend="unicap-data-buffer-t">unicap_data_buffer_t</link>;
+enum                <link linkend="unicap-property-flags-t">unicap_property_flags_t</link>;
+                    <link linkend="unicap-property-range-t">unicap_property_range_t</link>;
+                    <link linkend="unicap-property-value-list-t">unicap_property_value_list_t</link>;
+                    <link linkend="unicap-property-menu-t">unicap_property_menu_t</link>;
+enum                <link linkend="unicap-property-type-enum-t">unicap_property_type_enum_t</link>;
+                    <link linkend="unicap-property-t">unicap_property_t</link>;
+enum                <link linkend="unicap-event-t">unicap_event_t</link>;
+#define             <link linkend="UNICAP-FLAGS-MANUAL:CAPS">UNICAP_FLAGS_MANUAL</link>
+#define             <link linkend="UNICAP-FLAGS-AUTO:CAPS">UNICAP_FLAGS_AUTO</link>
+#define             <link linkend="UNICAP-FLAGS-ONE-PUSH:CAPS">UNICAP_FLAGS_ONE_PUSH</link>
+#define             <link linkend="UNICAP-FLAGS-READ-OUT:CAPS">UNICAP_FLAGS_READ_OUT</link>
+#define             <link linkend="UNICAP-FLAGS-ON-OFF:CAPS">UNICAP_FLAGS_ON_OFF</link>
+#define             <link linkend="UNICAP-FLAGS-READ-ONLY:CAPS">UNICAP_FLAGS_READ_ONLY</link>
+#define             <link linkend="UNICAP-FLAGS-FORMAT-CHANGE:CAPS">UNICAP_FLAGS_FORMAT_CHANGE</link>
+<link linkend="void"><returnvalue>void</returnvalue></link>                (<link linkend="unicap-callback-t">*unicap_callback_t</link>)                (<parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter>...</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                (<link linkend="unicap-new-frame-callback-t">*unicap_new_frame_callback_t</link>)      (<parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-data-buffer-t"><type>unicap_data_buffer_t</type></link> *buffer</parameter>,
+                                                         <parameter><link linkend="void"><type>void</type></link> *user_ptr</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                (<link linkend="unicap-drop-frame-callback-t">*unicap_drop_frame_callback_t</link>)     (<parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="void"><type>void</type></link> *user_ptr</parameter>);
+<link linkend="void"><returnvalue>void</returnvalue></link>                (<link linkend="unicap-new-device-callback-t">*unicap_new_device_callback_t</link>)     (<parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *device</parameter>,
+                                                         <parameter><link linkend="void"><type>void</type></link> *user_ptr</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-check-version">unicap_check_version</link>                (<parameter>unsigned <link linkend="int"><type>int</type></link> major</parameter>,
+                                                         <parameter>unsigned <link linkend="int"><type>int</type></link> minor</parameter>,
+                                                         <parameter>unsigned <link linkend="int"><type>int</type></link> micro</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-reenumerate-devices">unicap_reenumerate_devices</link>          (<parameter><link linkend="int"><type>int</type></link> *count</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-enumerate-devices">unicap_enumerate_devices</link>            (<parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *specifier</parameter>,
+                                                         <parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *device</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> index</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-open">unicap_open</link>                         (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> *handle</parameter>,
+                                                         <parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *device</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-register-callback">unicap_register_callback</link>            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter><link linkend="unicap-callback-t"><type>unicap_callback_t</type></link> callback</parameter>,
+                                                         <parameter><link linkend="void"><type>void</type></link> *user_ptr</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-close">unicap_close</link>                        (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-get-device">unicap_get_device</link>                   (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *device</parameter>);
+<link linkend="unicap-handle-t"><returnvalue>unicap_handle_t</returnvalue></link>     <link linkend="unicap-clone-handle">unicap_clone_handle</link>                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-reenumerate-formats">unicap_reenumerate_formats</link>          (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> *count</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-enumerate-formats">unicap_enumerate_formats</link>            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-format-t"><type>unicap_format_t</type></link> *specifier</parameter>,
+                                                         <parameter><link linkend="unicap-format-t"><type>unicap_format_t</type></link> *format</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> index</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-set-format">unicap_set_format</link>                   (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-format-t"><type>unicap_format_t</type></link> *format</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-get-format">unicap_get_format</link>                   (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-format-t"><type>unicap_format_t</type></link> *format</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-reenumerate-properties">unicap_reenumerate_properties</link>       (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> *count</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-enumerate-properties">unicap_enumerate_properties</link>         (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-property-t"><type>unicap_property_t</type></link> *specifier</parameter>,
+                                                         <parameter><link linkend="unicap-property-t"><type>unicap_property_t</type></link> *property</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> index</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-set-property">unicap_set_property</link>                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-property-t"><type>unicap_property_t</type></link> *property</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-set-property-value">unicap_set_property_value</link>           (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> *identifier</parameter>,
+                                                         <parameter><link linkend="double"><type>double</type></link> value</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-set-property-manual">unicap_set_property_manual</link>          (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> *identifier</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-set-property-auto">unicap_set_property_auto</link>            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> *identifier</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-set-property-one-push">unicap_set_property_one_push</link>        (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> *identifier</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-get-property">unicap_get_property</link>                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-property-t"><type>unicap_property_t</type></link> *property</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-get-property-value">unicap_get_property_value</link>           (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter>const <link linkend="char"><type>char</type></link> *identifier</parameter>,
+                                                         <parameter><link linkend="double"><type>double</type></link> *value</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-get-property-menu">unicap_get_property_menu</link>            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter>const <link linkend="char"><type>char</type></link> *identifier</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> **value</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-get-property-auto">unicap_get_property_auto</link>            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter>const <link linkend="char"><type>char</type></link> *identifier</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> *enabled</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-start-capture">unicap_start_capture</link>                (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-stop-capture">unicap_stop_capture</link>                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-queue-buffer">unicap_queue_buffer</link>                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-data-buffer-t"><type>unicap_data_buffer_t</type></link> *data_buffer</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-dequeue-buffer">unicap_dequeue_buffer</link>               (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-data-buffer-t"><type>unicap_data_buffer_t</type></link> **data_buffer</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-wait-buffer">unicap_wait_buffer</link>                  (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-data-buffer-t"><type>unicap_data_buffer_t</type></link> **data_buffer</parameter>);
+<link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     <link linkend="unicap-poll-buffer">unicap_poll_buffer</link>                  (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> *count</parameter>);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libunicap-unicap.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="libunicap-unicap.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="unicap-buffer-type-t" role="enum">
+<title>enum unicap_buffer_type_t</title>
+<indexterm zone="unicap-buffer-type-t"><primary>unicap_buffer_type_t</primary></indexterm>
+<programlisting>typedef enum
+{
+	UNICAP_BUFFER_TYPE_USER = 0, 
+	UNICAP_BUFFER_TYPE_SYSTEM,
+} unicap_buffer_type_t;
+</programlisting>
+<variablelist role="enum">
+<varlistentry id="UNICAP-BUFFER-TYPE-USER:CAPS" role="constant">
+<term><literal>UNICAP_BUFFER_TYPE_USER</literal></term>
+<listitem><simpara>buffer is provided by the application
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="UNICAP-BUFFER-TYPE-SYSTEM:CAPS" role="constant">
+<term><literal>UNICAP_BUFFER_TYPE_SYSTEM</literal></term>
+<listitem><simpara>buffer is provided by the driver or library
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-device-t" role="struct">
+<title>unicap_device_t</title>
+<indexterm zone="unicap-device-t"><primary>unicap_device_t</primary></indexterm>
+<programlisting>typedef struct {
+	char identifier[128];
+	char model_name[128];
+	char vendor_name[128];
+		
+	unsigned long long model_id;
+	unsigned int vendor_id;
+	
+	char cpi_layer[1024];
+	char device[1024];
+		
+	unsigned int flags;
+} unicap_device_t;
+</programlisting>
+<para>
+A struct defining a device
+</para><variablelist role="struct">
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-device-t.identifier">identifier</structfield>[128];</term>
+<listitem><simpara>unique textual ID of a device 
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-device-t.model-name">model_name</structfield>[128];</term>
+<listitem><simpara>model name of the device
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-device-t.vendor-name">vendor_name</structfield>[128];</term>
+<listitem><simpara>name of the device vendor
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term>unsigned&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-device-t.vendor-id">vendor_id</structfield>;</term>
+<listitem><simpara>numerical ID of the vendor ( eg. USB Vendor ID )
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-device-t.cpi-layer">cpi_layer</structfield>[1024];</term>
+<listitem><simpara>name of the plugin used to communicate with the device
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-device-t.device">device</structfield>[1024];</term>
+<listitem><simpara>name of the device file, if any
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term>unsigned&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-device-t.flags">flags</structfield>;</term>
+<listitem><simpara>flags
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-rect-t" role="struct">
+<title>unicap_rect_t</title>
+<indexterm zone="unicap-rect-t"><primary>unicap_rect_t</primary></indexterm>
+<programlisting>typedef struct {
+	int x;
+	int y;	
+	int width;
+	int height;
+} unicap_rect_t;
+</programlisting>
+<para>
+A struct defining a rectangle
+</para><variablelist role="struct">
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-rect-t.x">x</structfield>;</term>
+<listitem><simpara>horizontal position
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-rect-t.y">y</structfield>;</term>
+<listitem><simpara>vertical position
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-rect-t.width">width</structfield>;</term>
+<listitem><simpara>width of the rectangle
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-rect-t.height">height</structfield>;</term>
+<listitem><simpara>height of the rectangle
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-format-t" role="struct">
+<title>unicap_format_t</title>
+<indexterm zone="unicap-format-t"><primary>unicap_format_t</primary></indexterm>
+<programlisting>typedef struct {
+      char identifier[128];
+      
+      unicap_rect_t size;
+      
+      unicap_rect_t min_size;
+      unicap_rect_t max_size;
+      
+      int h_stepping;
+      int v_stepping;
+      unicap_rect_t *sizes;
+      int size_count;
+      
+      int bpp;
+      unsigned int fourcc;
+      unicap_format_flags_t flags;
+
+      unsigned int buffer_types;
+      int system_buffer_count;
+
+      size_t buffer_size;
+
+      unicap_buffer_type_t buffer_type;
+} unicap_format_t;
+</programlisting>
+<variablelist role="struct">
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-format-t.identifier">identifier</structfield>[128];</term>
+<listitem><simpara>unique textual identifier of this format
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-rect-t"><type>unicap_rect_t</type></link>&#160;<structfield id="unicap-format-t.size">size</structfield>;</term>
+<listitem><simpara>size of the format
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-rect-t"><type>unicap_rect_t</type></link>&#160;<structfield id="unicap-format-t.min-size">min_size</structfield>;</term>
+<listitem><simpara>minimum size
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-rect-t"><type>unicap_rect_t</type></link>&#160;<structfield id="unicap-format-t.max-size">max_size</structfield>;</term>
+<listitem><simpara>maximum size
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-format-t.h-stepping">h_stepping</structfield>;</term>
+<listitem><simpara>horizontal stepping
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-format-t.v-stepping">v_stepping</structfield>;</term>
+<listitem><simpara>vertical stepping
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-rect-t"><type>unicap_rect_t</type></link>&#160;*<structfield id="unicap-format-t.sizes">sizes</structfield>;</term>
+<listitem><simpara>array of allowed sizes. Might be NULL
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-format-t.size-count">size_count</structfield>;</term>
+<listitem><simpara>number of element in the sizes array
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-format-t.bpp">bpp</structfield>;</term>
+<listitem><simpara>bits per pixel
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term>unsigned&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-format-t.fourcc">fourcc</structfield>;</term>
+<listitem><simpara>FOURCC describing the colour format
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-format-flags-t"><type>unicap_format_flags_t</type></link>&#160;<structfield id="unicap-format-t.flags">flags</structfield>;</term>
+<listitem><simpara></simpara></listitem>
+</varlistentry>
+<varlistentry><term>unsigned&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-format-t.buffer-types">buffer_types</structfield>;</term>
+<listitem><simpara></simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-format-t.system-buffer-count">system_buffer_count</structfield>;</term>
+<listitem><simpara></simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="unicap-format-t.buffer-size">buffer_size</structfield>;</term>
+<listitem><simpara>amount of memory required by one data buffer of this
+format
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-buffer-type-t"><type>unicap_buffer_type_t</type></link>&#160;<structfield id="unicap-format-t.buffer-type">buffer_type</structfield>;</term>
+<listitem><simpara></simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-data-buffer-t" role="struct">
+<title>unicap_data_buffer_t</title>
+<indexterm zone="unicap-data-buffer-t"><primary>unicap_data_buffer_t</primary></indexterm>
+<programlisting>typedef struct {
+   unicap_format_t format;
+      
+   int frame_number;
+   struct timeval fill_time;
+   struct timeval duration;
+   struct timeval capture_start_time;
+      
+   unsigned char *data;
+   size_t buffer_size;	
+
+   unicap_buffer_type_t type;
+
+   unicap_buffer_flags_t flags;
+   
+   unicap_data_buffer_private_t *private;
+} unicap_data_buffer_t;
+</programlisting>
+<variablelist role="struct">
+<varlistentry><term><link linkend="unicap-format-t"><type>unicap_format_t</type></link>&#160;<structfield id="unicap-data-buffer-t.format">format</structfield>;</term>
+<listitem><simpara>a <link linkend="unicap-format-t"><type>unicap_format_t</type></link> describing the layout of the data
+buffer
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-data-buffer-t.frame-number">frame_number</structfield>;</term>
+<listitem><simpara></simpara></listitem>
+</varlistentry>
+<varlistentry><term>struct&#160;<link linkend="timeval"><type>timeval</type></link>&#160;<structfield id="unicap-data-buffer-t.fill-time">fill_time</structfield>;</term>
+<listitem><simpara>the time when capturing completed on this buffer
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term>struct&#160;<link linkend="timeval"><type>timeval</type></link>&#160;<structfield id="unicap-data-buffer-t.duration">duration</structfield>;</term>
+<listitem><simpara>frame duration of this buffer ( might not be present on
+all devices )
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term>struct&#160;<link linkend="timeval"><type>timeval</type></link>&#160;<structfield id="unicap-data-buffer-t.capture-start-time">capture_start_time</structfield>;</term>
+<listitem><simpara>the time when the capturing started on this
+buffer ( might not be supported on all devices )
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term>unsigned&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="unicap-data-buffer-t.data">data</structfield>;</term>
+<listitem><simpara>the image data
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="unicap-data-buffer-t.buffer-size">buffer_size</structfield>;</term>
+<listitem><simpara>size of the memory buffer pointed to by data
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-buffer-type-t"><type>unicap_buffer_type_t</type></link>&#160;<structfield id="unicap-data-buffer-t.type">type</structfield>;</term>
+<listitem><simpara></simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-buffer-flags-t"><type>unicap_buffer_flags_t</type></link>&#160;<structfield id="unicap-data-buffer-t.flags">flags</structfield>;</term>
+<listitem><simpara>
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-data-buffer-private-t"><type>unicap_data_buffer_private_t</type></link>&#160;*<structfield id="unicap-data-buffer-t.private">private</structfield>;</term>
+<listitem><simpara>
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-property-flags-t" role="enum">
+<title>enum unicap_property_flags_t</title>
+<indexterm zone="unicap-property-flags-t"><primary>unicap_property_flags_t</primary></indexterm>
+<programlisting>typedef enum
+{
+   UNICAP_FLAGS_MANUAL              = 1ULL, 
+   UNICAP_FLAGS_AUTO                = (1ULL&lt;&lt;1ULL),
+   UNICAP_FLAGS_ONE_PUSH            = (1ULL&lt;&lt;2ULL),
+   UNICAP_FLAGS_READ_OUT            = (1ULL&lt;&lt;3ULL),
+   UNICAP_FLAGS_ON_OFF              = (1ULL&lt;&lt;4ULL),
+   UNICAP_FLAGS_READ_ONLY           = (1ULL&lt;&lt;5ULL),
+   UNICAP_FLAGS_FORMAT_CHANGE       = (1ULL&lt;&lt;6ULL),
+   UNICAP_FLAGS_WRITE_ONLY          = (1ULL&lt;&lt;7ULL),
+
+   UNICAP_FLAGS_CHECK_STEPPING      = (1ULL&lt;&lt;32ULL),
+   
+   UNICAP_FLAGS_DUMMY_VALUE         = (0xffffffffffffffffULL)
+} unicap_property_flags_t;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="unicap-property-range-t" role="struct">
+<title>unicap_property_range_t</title>
+<indexterm zone="unicap-property-range-t"><primary>unicap_property_range_t</primary></indexterm>
+<programlisting>typedef struct {
+	double min;
+	double max;
+} unicap_property_range_t;
+</programlisting>
+<variablelist role="struct">
+<varlistentry><term><link linkend="double"><type>double</type></link>&#160;<structfield id="unicap-property-range-t.min">min</structfield>;</term>
+<listitem><simpara>minimum value
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="double"><type>double</type></link>&#160;<structfield id="unicap-property-range-t.max">max</structfield>;</term>
+<listitem><simpara>maximum value
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-property-value-list-t" role="struct">
+<title>unicap_property_value_list_t</title>
+<indexterm zone="unicap-property-value-list-t"><primary>unicap_property_value_list_t</primary></indexterm>
+<programlisting>typedef struct {
+	double *values;
+	int value_count;	
+} unicap_property_value_list_t;
+</programlisting>
+<variablelist role="struct">
+<varlistentry><term><link linkend="double"><type>double</type></link>&#160;*<structfield id="unicap-property-value-list-t.values">values</structfield>;</term>
+<listitem><simpara>array of values
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-property-value-list-t.value-count">value_count</structfield>;</term>
+<listitem><simpara>number of elements in values array
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-property-menu-t" role="struct">
+<title>unicap_property_menu_t</title>
+<indexterm zone="unicap-property-menu-t"><primary>unicap_property_menu_t</primary></indexterm>
+<programlisting>typedef struct {
+	char **menu_items;
+	int menu_item_count;
+} unicap_property_menu_t;
+</programlisting>
+<variablelist role="struct">
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;**<structfield id="unicap-property-menu-t.menu-items">menu_items</structfield>;</term>
+<listitem><simpara>an array of menu items
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-property-menu-t.menu-item-count">menu_item_count</structfield>;</term>
+<listitem><simpara>number of elements in the menu_items array
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-property-type-enum-t" role="enum">
+<title>enum unicap_property_type_enum_t</title>
+<indexterm zone="unicap-property-type-enum-t"><primary>unicap_property_type_enum_t</primary></indexterm>
+<programlisting>typedef enum 
+{
+	UNICAP_PROPERTY_TYPE_RANGE = 0,
+	UNICAP_PROPERTY_TYPE_VALUE_LIST,
+	UNICAP_PROPERTY_TYPE_MENU,
+	UNICAP_PROPERTY_TYPE_DATA,
+	UNICAP_PROPERTY_TYPE_FLAGS, 
+
+	UNICAP_PROPERTY_TYPE_UNKNOWN
+} unicap_property_type_enum_t;
+</programlisting>
+<variablelist role="enum">
+<varlistentry id="UNICAP-PROPERTY-TYPE-RANGE:CAPS" role="constant">
+<term><literal>UNICAP_PROPERTY_TYPE_RANGE</literal></term>
+<listitem><simpara>a property with a value in a given
+range
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="UNICAP-PROPERTY-TYPE-VALUE-LIST:CAPS" role="constant">
+<term><literal>UNICAP_PROPERTY_TYPE_VALUE_LIST</literal></term>
+<listitem><simpara>a property with a value out of a
+list of values
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="UNICAP-PROPERTY-TYPE-MENU:CAPS" role="constant">
+<term><literal>UNICAP_PROPERTY_TYPE_MENU</literal></term>
+<listitem><simpara></simpara></listitem>
+</varlistentry>
+<varlistentry id="UNICAP-PROPERTY-TYPE-DATA:CAPS" role="constant">
+<term><literal>UNICAP_PROPERTY_TYPE_DATA</literal></term>
+<listitem><simpara></simpara></listitem>
+</varlistentry>
+<varlistentry id="UNICAP-PROPERTY-TYPE-FLAGS:CAPS" role="constant">
+<term><literal>UNICAP_PROPERTY_TYPE_FLAGS</literal></term>
+<listitem><simpara>a property where only the flags are valid
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="UNICAP-PROPERTY-TYPE-UNKNOWN:CAPS" role="constant">
+<term><literal>UNICAP_PROPERTY_TYPE_UNKNOWN</literal></term>
+<listitem><simpara>
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-property-t" role="struct">
+<title>unicap_property_t</title>
+<indexterm zone="unicap-property-t"><primary>unicap_property_t</primary></indexterm>
+<programlisting>typedef struct {
+      char identifier[128];
+      char category[128];
+      char unit[128];
+      
+      char **relations;
+      int relations_count;	
+      
+      union
+	    double value;
+	    char menu_item[128]; 
+      
+      
+      union	
+	    unicap_property_range_t range;
+	    unicap_property_value_list_t value_list;
+	    unicap_property_menu_t menu; 
+	    
+      
+      double stepping;
+      
+      unicap_property_type_enum_t type;	
+      unicap_property_flags_t flags;
+      unicap_property_flags_t flags_mask;
+      
+      void *property_data; 
+      size_t property_data_size;	
+} unicap_property_t;
+</programlisting>
+<variablelist role="struct">
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-property-t.identifier">identifier</structfield>[128];</term>
+<listitem><simpara>unique textual identifier of this properties
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-property-t.category">category</structfield>[128];</term>
+<listitem><simpara>a category for this property, for example: 'Lens Control' for zoom and focus properties
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-property-t.unit">unit</structfield>[128];</term>
+<listitem><simpara>optional unit, for example: 's' for Exposure
+denoting the Exposure time in seconds
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;**<structfield id="unicap-property-t.relations">relations</structfield>;</term>
+<listitem><simpara>properties that might their state or value when
+changing this property
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="int"><type>int</type></link>&#160;<structfield id="unicap-property-t.relations-count">relations_count</structfield>;</term>
+<listitem><simpara>size of the relations array
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="char"><type>char</type></link>&#160;<structfield id="unicap-property-t.menu-item">menu_item</structfield>[128];</term>
+<listitem><simpara>for UNICAP_PROPERTY_TYPE_MENU properties: selected menu entry
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-property-value-list-t"><type>unicap_property_value_list_t</type></link>&#160;<structfield id="unicap-property-t.value-list">value_list</structfield>;</term>
+<listitem><simpara>for UNICAP_PROPERTY_TYPE_VALUE_LIST properties: list
+of valid values
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-property-menu-t"><type>unicap_property_menu_t</type></link>&#160;<structfield id="unicap-property-t.menu">menu</structfield>;</term>
+<listitem><simpara>for UNICAP_PROPERTY_TYPE_MENU properties: menu
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="double"><type>double</type></link>&#160;<structfield id="unicap-property-t.stepping">stepping</structfield>;</term>
+<listitem><simpara>for UNICAP_PROPERTY_TYPE_RANGE properties: stepping 
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-property-type-enum-t"><type>unicap_property_type_enum_t</type></link>&#160;<structfield id="unicap-property-t.type">type</structfield>;</term>
+<listitem><simpara>the type of the property
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-property-flags-t"><type>unicap_property_flags_t</type></link>&#160;<structfield id="unicap-property-t.flags">flags</structfield>;</term>
+<listitem><simpara>when enumerated, this field contains the default flags for the property; for get/set operations, this 
+field contains the actual flags
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="unicap-property-flags-t"><type>unicap_property_flags_t</type></link>&#160;<structfield id="unicap-property-t.flags-mask">flags_mask</structfield>;</term>
+<listitem><simpara>when enumerated, this field contains the allowed flags for the property; for get/set operations, this field acts as a mask
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="void"><type>void</type></link>&#160;*<structfield id="unicap-property-t.property-data">property_data</structfield>;</term>
+<listitem><simpara>a pointer to an opaque data structure
+</simpara></listitem>
+</varlistentry>
+<varlistentry><term><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="unicap-property-t.property-data-size">property_data_size</structfield>;</term>
+<listitem><simpara>size of the data structure pointed at by property_data
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-event-t" role="enum">
+<title>enum unicap_event_t</title>
+<indexterm zone="unicap-event-t"><primary>unicap_event_t</primary></indexterm>
+<programlisting>typedef enum 
+{
+	UNICAP_EVENT_FIRST = 0,
+	UNICAP_EVENT_DEVICE_REMOVED = 0, 
+	UNICAP_EVENT_NEW_DEVICE,
+	UNICAP_EVENT_NEW_FRAME, 
+	UNICAP_EVENT_DROP_FRAME, 
+	UNICAP_EVENT_LAST
+} unicap_event_t;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="UNICAP-FLAGS-MANUAL:CAPS" role="macro">
+<title>UNICAP_FLAGS_MANUAL</title>
+<indexterm zone="UNICAP-FLAGS-MANUAL:CAPS"><primary>UNICAP_FLAGS_MANUAL</primary></indexterm>
+<programlisting>#define UNICAP_FLAGS_MANUAL         (1ULL)
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="UNICAP-FLAGS-AUTO:CAPS" role="macro">
+<title>UNICAP_FLAGS_AUTO</title>
+<indexterm zone="UNICAP-FLAGS-AUTO:CAPS"><primary>UNICAP_FLAGS_AUTO</primary></indexterm>
+<programlisting>#define UNICAP_FLAGS_AUTO           (1ULL&lt;&lt;1ULL)
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="UNICAP-FLAGS-ONE-PUSH:CAPS" role="macro">
+<title>UNICAP_FLAGS_ONE_PUSH</title>
+<indexterm zone="UNICAP-FLAGS-ONE-PUSH:CAPS"><primary>UNICAP_FLAGS_ONE_PUSH</primary></indexterm>
+<programlisting>#define UNICAP_FLAGS_ONE_PUSH       (1ULL&lt;&lt;2ULL)
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="UNICAP-FLAGS-READ-OUT:CAPS" role="macro">
+<title>UNICAP_FLAGS_READ_OUT</title>
+<indexterm zone="UNICAP-FLAGS-READ-OUT:CAPS"><primary>UNICAP_FLAGS_READ_OUT</primary></indexterm>
+<programlisting>#define UNICAP_FLAGS_READ_OUT       (1ULL&lt;&lt;3ULL)
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="UNICAP-FLAGS-ON-OFF:CAPS" role="macro">
+<title>UNICAP_FLAGS_ON_OFF</title>
+<indexterm zone="UNICAP-FLAGS-ON-OFF:CAPS"><primary>UNICAP_FLAGS_ON_OFF</primary></indexterm>
+<programlisting>#define UNICAP_FLAGS_ON_OFF         (1ULL&lt;&lt;4ULL)
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="UNICAP-FLAGS-READ-ONLY:CAPS" role="macro">
+<title>UNICAP_FLAGS_READ_ONLY</title>
+<indexterm zone="UNICAP-FLAGS-READ-ONLY:CAPS"><primary>UNICAP_FLAGS_READ_ONLY</primary></indexterm>
+<programlisting>#define UNICAP_FLAGS_READ_ONLY      (1ULL&lt;&lt;5ULL)
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="UNICAP-FLAGS-FORMAT-CHANGE:CAPS" role="macro">
+<title>UNICAP_FLAGS_FORMAT_CHANGE</title>
+<indexterm zone="UNICAP-FLAGS-FORMAT-CHANGE:CAPS"><primary>UNICAP_FLAGS_FORMAT_CHANGE</primary></indexterm>
+<programlisting>#define UNICAP_FLAGS_FORMAT_CHANGE  (1ULL&lt;&lt;6ULL)
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="unicap-callback-t" role="function">
+<title>unicap_callback_t ()</title>
+<indexterm zone="unicap-callback-t"><primary>unicap_callback_t</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                (*unicap_callback_t)                (<parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter>...</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>event</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-new-frame-callback-t" role="function">
+<title>unicap_new_frame_callback_t ()</title>
+<indexterm zone="unicap-new-frame-callback-t"><primary>unicap_new_frame_callback_t</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                (*unicap_new_frame_callback_t)      (<parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-data-buffer-t"><type>unicap_data_buffer_t</type></link> *buffer</parameter>,
+                                                         <parameter><link linkend="void"><type>void</type></link> *user_ptr</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>event</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buffer</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_ptr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-drop-frame-callback-t" role="function">
+<title>unicap_drop_frame_callback_t ()</title>
+<indexterm zone="unicap-drop-frame-callback-t"><primary>unicap_drop_frame_callback_t</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                (*unicap_drop_frame_callback_t)     (<parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="void"><type>void</type></link> *user_ptr</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>event</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_ptr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-new-device-callback-t" role="function">
+<title>unicap_new_device_callback_t ()</title>
+<indexterm zone="unicap-new-device-callback-t"><primary>unicap_new_device_callback_t</primary></indexterm>
+<programlisting><link linkend="void"><returnvalue>void</returnvalue></link>                (*unicap_new_device_callback_t)     (<parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *device</parameter>,
+                                                         <parameter><link linkend="void"><type>void</type></link> *user_ptr</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>event</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>device</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_ptr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-check-version" role="function">
+<title>unicap_check_version ()</title>
+<indexterm zone="unicap-check-version"><primary>unicap_check_version</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_check_version                (<parameter>unsigned <link linkend="int"><type>int</type></link> major</parameter>,
+                                                         <parameter>unsigned <link linkend="int"><type>int</type></link> minor</parameter>,
+                                                         <parameter>unsigned <link linkend="int"><type>int</type></link> micro</parameter>);</programlisting>
+<para>
+Checks that the unicap library version is compatible with given
+version
+</para><variablelist role="params">
+<varlistentry><term><parameter>major</parameter>&#160;:</term>
+<listitem><simpara>major version to check against
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>minor</parameter>&#160;:</term>
+<listitem><simpara>minor version to check against
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>micro</parameter>&#160;:</term>
+<listitem><simpara>micro version to check against
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> TRUE if compatible
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-reenumerate-devices" role="function">
+<title>unicap_reenumerate_devices ()</title>
+<indexterm zone="unicap-reenumerate-devices"><primary>unicap_reenumerate_devices</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_reenumerate_devices          (<parameter><link linkend="int"><type>int</type></link> *count</parameter>);</programlisting>
+<para>
+Rebuild internal list of devices.
+</para><variablelist role="params">
+<varlistentry><term><parameter>count</parameter>&#160;:</term>
+<listitem><simpara>if not NULL, receives number of devices found
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-enumerate-devices" role="function">
+<title>unicap_enumerate_devices ()</title>
+<indexterm zone="unicap-enumerate-devices"><primary>unicap_enumerate_devices</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_enumerate_devices            (<parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *specifier</parameter>,
+                                                         <parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *device</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> index</parameter>);</programlisting>
+<para>
+Enumerates currently connected video capture devices
+</para><variablelist role="params">
+<varlistentry><term><parameter>specifier</parameter>&#160;:</term>
+<listitem><simpara>specifies which devices should be returned, or NULL
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>device</parameter>&#160;:</term>
+<listitem><simpara>receives the device
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>index</parameter>&#160;:</term>
+<listitem><simpara>number of the device to be enumerated
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-open" role="function">
+<title>unicap_open ()</title>
+<indexterm zone="unicap-open"><primary>unicap_open</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_open                         (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> *handle</parameter>,
+                                                         <parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *device</parameter>);</programlisting>
+<para>
+Acquire a handle to a device.
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>receives the new handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>device</parameter>&#160;:</term>
+<listitem><simpara>device to open, as returned by <link linkend="unicap-enumerate-devices"><type>unicap_enumerate_devices</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-register-callback" role="function">
+<title>unicap_register_callback ()</title>
+<indexterm zone="unicap-register-callback"><primary>unicap_register_callback</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_register_callback            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-event-t"><type>unicap_event_t</type></link> event</parameter>,
+                                                         <parameter><link linkend="unicap-callback-t"><type>unicap_callback_t</type></link> callback</parameter>,
+                                                         <parameter><link linkend="void"><type>void</type></link> *user_ptr</parameter>);</programlisting>
+<variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>event</parameter>&#160;:</term>
+<listitem><simpara>event to register a callback for
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&#160;:</term>
+<listitem><simpara>the callback function to call when the event occurs
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_ptr</parameter>&#160;:</term>
+<listitem><simpara>user provided data that gets passed to the callback function
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-close" role="function">
+<title>unicap_close ()</title>
+<indexterm zone="unicap-close"><primary>unicap_close</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_close                        (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>);</programlisting>
+<para>
+Clsoing a handle decrements the reference count on the device. If
+the reference count is 0, all resources associated with the device
+get freed.
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-get-device" role="function">
+<title>unicap_get_device ()</title>
+<indexterm zone="unicap-get-device"><primary>unicap_get_device</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_get_device                   (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-device-t"><type>unicap_device_t</type></link> *device</parameter>);</programlisting>
+<para>
+Gets the device controled by handle
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>device</parameter>&#160;:</term>
+<listitem><simpara>a pointer to the location where the device should be stored
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-clone-handle" role="function">
+<title>unicap_clone_handle ()</title>
+<indexterm zone="unicap-clone-handle"><primary>unicap_clone_handle</primary></indexterm>
+<programlisting><link linkend="unicap-handle-t"><returnvalue>unicap_handle_t</returnvalue></link>     unicap_clone_handle                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>);</programlisting>
+<para>
+Copies the handle, increment the reference count
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>the handle to clone
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> new handle
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-reenumerate-formats" role="function">
+<title>unicap_reenumerate_formats ()</title>
+<indexterm zone="unicap-reenumerate-formats"><primary>unicap_reenumerate_formats</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_reenumerate_formats          (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> *count</parameter>);</programlisting>
+<para>
+Re-create the list of formats supported by the device. Invalidates all data returned by prior calls 
+to <link linkend="unicap-emumerate-formats"><function>unicap_emumerate_formats()</function></link> and <link linkend="unicap-get-format"><function>unicap_get_format()</function></link>.
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>count</parameter>&#160;:</term>
+<listitem><simpara>Receives the number of formats currently supported by the device. Might be NULL
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-enumerate-formats" role="function">
+<title>unicap_enumerate_formats ()</title>
+<indexterm zone="unicap-enumerate-formats"><primary>unicap_enumerate_formats</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_enumerate_formats            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-format-t"><type>unicap_format_t</type></link> *specifier</parameter>,
+                                                         <parameter><link linkend="unicap-format-t"><type>unicap_format_t</type></link> *format</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> index</parameter>);</programlisting>
+<para>
+Enumerate formats known to the device
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>specifier</parameter>&#160;:</term>
+<listitem><simpara>limits the enumerated formats to the ones matching the fields in specifier. Fields set to -1 in the specifier are ignored
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara>A pointer to allocated storage where the enumerated format shoudl be stored
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>index</parameter>&#160;:</term>
+<listitem><simpara>index of the format in the enumeration
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> STATUS_NO_MORE_FORMATS: end of the list of matching formats has been reached
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-set-format" role="function">
+<title>unicap_set_format ()</title>
+<indexterm zone="unicap-set-format"><primary>unicap_set_format</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_set_format                   (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-format-t"><type>unicap_format_t</type></link> *format</parameter>);</programlisting>
+<para>
+Set a format.
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara>the format to set
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> STATUS_NO_MATCH: given format not valid for device
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-get-format" role="function">
+<title>unicap_get_format ()</title>
+<indexterm zone="unicap-get-format"><primary>unicap_get_format</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_get_format                   (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-format-t"><type>unicap_format_t</type></link> *format</parameter>);</programlisting>
+<para>
+Get the current format
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara>a pointer to the location where the returned format should be stored
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-reenumerate-properties" role="function">
+<title>unicap_reenumerate_properties ()</title>
+<indexterm zone="unicap-reenumerate-properties"><primary>unicap_reenumerate_properties</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_reenumerate_properties       (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> *count</parameter>);</programlisting>
+<para>
+Re-create the list of properties supported by the device. This invalidates all data returned by prior calls to 
+<link linkend="unicap-enumerate-properties"><function>unicap_enumerate_properties()</function></link> and <link linkend="unicap-get-property"><function>unicap_get_property()</function></link>
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>count</parameter>&#160;:</term>
+<listitem><simpara>receives number of properties supported by the device. Might be NULL
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-enumerate-properties" role="function">
+<title>unicap_enumerate_properties ()</title>
+<indexterm zone="unicap-enumerate-properties"><primary>unicap_enumerate_properties</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_enumerate_properties         (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-property-t"><type>unicap_property_t</type></link> *specifier</parameter>,
+                                                         <parameter><link linkend="unicap-property-t"><type>unicap_property_t</type></link> *property</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> index</parameter>);</programlisting>
+<para>
+Enumerate properties matching "specifier"
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>specifier</parameter>&#160;:</term>
+<listitem><simpara>specifier
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>property</parameter>&#160;:</term>
+<listitem><simpara>a pointer to the location where the enumerated property should be stored
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>index</parameter>&#160;:</term>
+<listitem><simpara>index of the property
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-set-property" role="function">
+<title>unicap_set_property ()</title>
+<indexterm zone="unicap-set-property"><primary>unicap_set_property</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_set_property                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-property-t"><type>unicap_property_t</type></link> *property</parameter>);</programlisting>
+<para>
+Set a device property
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>property</parameter>&#160;:</term>
+<listitem><simpara>the property to set
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-set-property-value" role="function">
+<title>unicap_set_property_value ()</title>
+<indexterm zone="unicap-set-property-value"><primary>unicap_set_property_value</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_set_property_value           (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> *identifier</parameter>,
+                                                         <parameter><link linkend="double"><type>double</type></link> value</parameter>);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>identifier</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-set-property-manual" role="function">
+<title>unicap_set_property_manual ()</title>
+<indexterm zone="unicap-set-property-manual"><primary>unicap_set_property_manual</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_set_property_manual          (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> *identifier</parameter>);</programlisting>
+<para>
+Sets a property to manual mode, disabling the automatic mode
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>identifier</parameter>&#160;:</term>
+<listitem><simpara>identifier of the property to set
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-set-property-auto" role="function">
+<title>unicap_set_property_auto ()</title>
+<indexterm zone="unicap-set-property-auto"><primary>unicap_set_property_auto</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_set_property_auto            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> *identifier</parameter>);</programlisting>
+<para>
+Sets the property to automatic mode
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>identifier</parameter>&#160;:</term>
+<listitem><simpara>identifier of the property to set
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-set-property-one-push" role="function">
+<title>unicap_set_property_one_push ()</title>
+<indexterm zone="unicap-set-property-one-push"><primary>unicap_set_property_one_push</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_set_property_one_push        (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> *identifier</parameter>);</programlisting>
+<para>
+Enable one push mode on a property
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>identifier</parameter>&#160;:</term>
+<listitem><simpara>identifier of the property to set
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-get-property" role="function">
+<title>unicap_get_property ()</title>
+<indexterm zone="unicap-get-property"><primary>unicap_get_property</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_get_property                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-property-t"><type>unicap_property_t</type></link> *property</parameter>);</programlisting>
+<para>
+Get a device property
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>property</parameter>&#160;:</term>
+<listitem><simpara>a pointer to the location where the returned property should be stored
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-get-property-value" role="function">
+<title>unicap_get_property_value ()</title>
+<indexterm zone="unicap-get-property-value"><primary>unicap_get_property_value</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_get_property_value           (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter>const <link linkend="char"><type>char</type></link> *identifier</parameter>,
+                                                         <parameter><link linkend="double"><type>double</type></link> *value</parameter>);</programlisting>
+<para>
+Returns the value of a property
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>identifier</parameter>&#160;:</term>
+<listitem><simpara>identifier of the property to query
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>a pointer to the location where the value should be stored
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-get-property-menu" role="function">
+<title>unicap_get_property_menu ()</title>
+<indexterm zone="unicap-get-property-menu"><primary>unicap_get_property_menu</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_get_property_menu            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter>const <link linkend="char"><type>char</type></link> *identifier</parameter>,
+                                                         <parameter><link linkend="char"><type>char</type></link> **value</parameter>);</programlisting>
+<para>
+Returns the menu string of a property. Property must be of
+UNICAP_PROPERTY_TYPE_MENU type. The returned string is owned by the
+unicap library and might be overwritten by subsequent calls to unicap_get_property_menu.
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>identifier</parameter>&#160;:</term>
+<listitem><simpara>identifier of the property to query
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>pointer to store the string location
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-get-property-auto" role="function">
+<title>unicap_get_property_auto ()</title>
+<indexterm zone="unicap-get-property-auto"><primary>unicap_get_property_auto</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_get_property_auto            (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter>const <link linkend="char"><type>char</type></link> *identifier</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> *enabled</parameter>);</programlisting>
+<para>
+Retrieve the current property auto mode
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>identifier</parameter>&#160;:</term>
+<listitem><simpara>identifier of the property to query
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>enabled</parameter>&#160;:</term>
+<listitem><simpara>location to store the enabled flag
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-start-capture" role="function">
+<title>unicap_start_capture ()</title>
+<indexterm zone="unicap-start-capture"><primary>unicap_start_capture</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_start_capture                (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>);</programlisting>
+<para>
+Start the capture device. After this call, unicap_wait_buffer calls are allowed
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>a handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-stop-capture" role="function">
+<title>unicap_stop_capture ()</title>
+<indexterm zone="unicap-stop-capture"><primary>unicap_stop_capture</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_stop_capture                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>);</programlisting>
+<para>
+Stop the capture device
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-queue-buffer" role="function">
+<title>unicap_queue_buffer ()</title>
+<indexterm zone="unicap-queue-buffer"><primary>unicap_queue_buffer</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_queue_buffer                 (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-data-buffer-t"><type>unicap_data_buffer_t</type></link> *data_buffer</parameter>);</programlisting>
+<para>
+Queue a buffer to be filled by the capture device. The queued
+buffer must not be touched ( especially not be freed ) until it is
+in the ready queue or dequeued. Supplied buffer must be at least of
+the buffer size returned by get_format
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data_buffer</parameter>&#160;:</term>
+<listitem><simpara>A pointer to the buffer to queue
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-dequeue-buffer" role="function">
+<title>unicap_dequeue_buffer ()</title>
+<indexterm zone="unicap-dequeue-buffer"><primary>unicap_dequeue_buffer</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_dequeue_buffer               (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-data-buffer-t"><type>unicap_data_buffer_t</type></link> **data_buffer</parameter>);</programlisting>
+<para>
+Removes the first buffer from the queue. Depending on the
+device:Can only be called if the capture device is stopped.
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data_buffer</parameter>&#160;:</term>
+<listitem><simpara>receives the dequeued buffer or NULL if no buffer was queued
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-wait-buffer" role="function">
+<title>unicap_wait_buffer ()</title>
+<indexterm zone="unicap-wait-buffer"><primary>unicap_wait_buffer</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_wait_buffer                  (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="unicap-data-buffer-t"><type>unicap_data_buffer_t</type></link> **data_buffer</parameter>);</programlisting>
+<para>
+Removes a buffer from the ready queue. If no buffer is available, this function blocks until a buffer got filled.
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data_buffer</parameter>&#160;:</term>
+<listitem><simpara>A pointer to the location where the returned buffer should be stored
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="unicap-poll-buffer" role="function">
+<title>unicap_poll_buffer ()</title>
+<indexterm zone="unicap-poll-buffer"><primary>unicap_poll_buffer</primary></indexterm>
+<programlisting><link linkend="unicap-status-t"><returnvalue>unicap_status_t</returnvalue></link>     unicap_poll_buffer                  (<parameter><link linkend="unicap-handle-t"><type>unicap_handle_t</type></link> handle</parameter>,
+                                                         <parameter><link linkend="int"><type>int</type></link> *count</parameter>);</programlisting>
+<para>
+Poll for buffers in the fill queue
+</para><variablelist role="params">
+<varlistentry><term><parameter>handle</parameter>&#160;:</term>
+<listitem><simpara>A handle
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>count</parameter>&#160;:</term>
+<listitem><simpara>A pointer to the location where return value should be stored
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

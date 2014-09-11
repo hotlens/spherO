@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<indexdiv>
+<indexdiv><title>B</title>
+<indexentry><primaryie linkends="unicap-buffer-type-t"><link linkend="unicap-buffer-type-t">unicap_buffer_type_t</link>, enum in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>C</title>
+<indexentry><primaryie linkends="unicap-callback-info"><link linkend="unicap-callback-info">unicap_callback_info</link>, struct in <link linkend="libunicap-unicap-private">unicap_private</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-callback-t"><link linkend="unicap-callback-t">unicap_callback_t</link>, user_function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-check-version"><link linkend="unicap-check-version">unicap_check_version</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-clone-handle"><link linkend="unicap-clone-handle">unicap_clone_handle</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-close"><link linkend="unicap-close">unicap_close</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>D</title>
+<indexentry><primaryie linkends="unicap-data-buffer-t"><link linkend="unicap-data-buffer-t">unicap_data_buffer_t</link>, struct in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-dequeue-buffer"><link linkend="unicap-dequeue-buffer">unicap_dequeue_buffer</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-device-t"><link linkend="unicap-device-t">unicap_device_t</link>, struct in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-drop-frame-callback-t"><link linkend="unicap-drop-frame-callback-t">unicap_drop_frame_callback_t</link>, user_function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>E</title>
+<indexentry><primaryie linkends="unicap-enumerate-devices"><link linkend="unicap-enumerate-devices">unicap_enumerate_devices</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-enumerate-formats"><link linkend="unicap-enumerate-formats">unicap_enumerate_formats</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-enumerate-properties"><link linkend="unicap-enumerate-properties">unicap_enumerate_properties</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-event-t"><link linkend="unicap-event-t">unicap_event_t</link>, enum in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>F</title>
+<indexentry><primaryie linkends="UNICAP-FLAGS-AUTO:CAPS"><link linkend="UNICAP-FLAGS-AUTO:CAPS">UNICAP_FLAGS_AUTO</link>, macro in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="UNICAP-FLAGS-FORMAT-CHANGE:CAPS"><link linkend="UNICAP-FLAGS-FORMAT-CHANGE:CAPS">UNICAP_FLAGS_FORMAT_CHANGE</link>, macro in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="UNICAP-FLAGS-MANUAL:CAPS"><link linkend="UNICAP-FLAGS-MANUAL:CAPS">UNICAP_FLAGS_MANUAL</link>, macro in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="UNICAP-FLAGS-ONE-PUSH:CAPS"><link linkend="UNICAP-FLAGS-ONE-PUSH:CAPS">UNICAP_FLAGS_ONE_PUSH</link>, macro in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="UNICAP-FLAGS-ON-OFF:CAPS"><link linkend="UNICAP-FLAGS-ON-OFF:CAPS">UNICAP_FLAGS_ON_OFF</link>, macro in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="UNICAP-FLAGS-READ-ONLY:CAPS"><link linkend="UNICAP-FLAGS-READ-ONLY:CAPS">UNICAP_FLAGS_READ_ONLY</link>, macro in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="UNICAP-FLAGS-READ-OUT:CAPS"><link linkend="UNICAP-FLAGS-READ-OUT:CAPS">UNICAP_FLAGS_READ_OUT</link>, macro in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-format-t"><link linkend="unicap-format-t">unicap_format_t</link>, struct in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>G</title>
+<indexentry><primaryie linkends="unicap-get-device"><link linkend="unicap-get-device">unicap_get_device</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-get-format"><link linkend="unicap-get-format">unicap_get_format</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-get-property"><link linkend="unicap-get-property">unicap_get_property</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-get-property-auto"><link linkend="unicap-get-property-auto">unicap_get_property_auto</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-get-property-menu"><link linkend="unicap-get-property-menu">unicap_get_property_menu</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-get-property-value"><link linkend="unicap-get-property-value">unicap_get_property_value</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>H</title>
+<indexentry><primaryie linkends="unicap-handle"><link linkend="unicap-handle">unicap_handle</link>, struct in <link linkend="libunicap-unicap-private">unicap_private</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>N</title>
+<indexentry><primaryie linkends="unicap-new-device-callback-t"><link linkend="unicap-new-device-callback-t">unicap_new_device_callback_t</link>, user_function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-new-frame-callback-t"><link linkend="unicap-new-frame-callback-t">unicap_new_frame_callback_t</link>, user_function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>O</title>
+<indexentry><primaryie linkends="unicap-open"><link linkend="unicap-open">unicap_open</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>P</title>
+<indexentry><primaryie linkends="unicap-poll-buffer"><link linkend="unicap-poll-buffer">unicap_poll_buffer</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-property-flags-t"><link linkend="unicap-property-flags-t">unicap_property_flags_t</link>, enum in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-property-menu-t"><link linkend="unicap-property-menu-t">unicap_property_menu_t</link>, struct in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-property-range-t"><link linkend="unicap-property-range-t">unicap_property_range_t</link>, struct in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-property-t"><link linkend="unicap-property-t">unicap_property_t</link>, struct in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-property-type-enum-t"><link linkend="unicap-property-type-enum-t">unicap_property_type_enum_t</link>, enum in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-property-value-list-t"><link linkend="unicap-property-value-list-t">unicap_property_value_list_t</link>, struct in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>Q</title>
+<indexentry><primaryie linkends="unicap-queue-buffer"><link linkend="unicap-queue-buffer">unicap_queue_buffer</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>R</title>
+<indexentry><primaryie linkends="unicap-real-enumerate-devices"><link linkend="unicap-real-enumerate-devices">unicap_real_enumerate_devices</link>, function in <link linkend="libunicap-unicap-private">unicap_private</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-rect-t"><link linkend="unicap-rect-t">unicap_rect_t</link>, struct in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-reenumerate-devices"><link linkend="unicap-reenumerate-devices">unicap_reenumerate_devices</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-reenumerate-formats"><link linkend="unicap-reenumerate-formats">unicap_reenumerate_formats</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-reenumerate-properties"><link linkend="unicap-reenumerate-properties">unicap_reenumerate_properties</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-register-callback"><link linkend="unicap-register-callback">unicap_register_callback</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>S</title>
+<indexentry><primaryie linkends="unicap-set-format"><link linkend="unicap-set-format">unicap_set_format</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-set-property"><link linkend="unicap-set-property">unicap_set_property</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-set-property-auto"><link linkend="unicap-set-property-auto">unicap_set_property_auto</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-set-property-manual"><link linkend="unicap-set-property-manual">unicap_set_property_manual</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-set-property-one-push"><link linkend="unicap-set-property-one-push">unicap_set_property_one_push</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-set-property-value"><link linkend="unicap-set-property-value">unicap_set_property_value</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-shm-reg"><link linkend="unicap-shm-reg">unicap_shm_reg</link>, struct in <link linkend="libunicap-unicap-private">unicap_private</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-start-capture"><link linkend="unicap-start-capture">unicap_start_capture</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+<indexentry><primaryie linkends="unicap-stop-capture"><link linkend="unicap-stop-capture">unicap_stop_capture</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>W</title>
+<indexentry><primaryie linkends="unicap-wait-buffer"><link linkend="unicap-wait-buffer">unicap_wait_buffer</link>, function in <link linkend="libunicap-unicap">unicap</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>
