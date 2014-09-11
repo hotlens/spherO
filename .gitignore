@@ -1,0 +1,10 @@
+# temporaries
+*.pyc
+*.cache
+*.swp
+
+# autotools generated
+deps/libunicap/configure
+
+# targets
+test_main
