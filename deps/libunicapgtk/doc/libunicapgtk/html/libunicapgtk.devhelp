@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="libunicapgtk Reference Manual" link="index.html" author="" name="libunicapgtk">
+  <chapters>
+    <sub name="libunicapgtk Reference" link="ch01.html">
+      <sub name="unicapgtk" link="libunicapgtk-unicapgtk.html"/>
+      <sub name="UnicapgtkDeviceProperty" link="UnicapgtkDeviceProperty.html"/>
+      <sub name="UnicapgtkDeviceSelection" link="UnicapgtkDeviceSelection.html"/>
+      <sub name="UnicapgtkPropertyDialog" link="UnicapgtkPropertyDialog.html"/>
+      <sub name="UnicapgtkVideoDisplay" link="libunicapgtk-unicapgtk-video-display.html"/>
+      <sub name="UnicapgtkVideoFormatSelection" link="libunicapgtk-unicapgtk-video-format-selection.html"/>
+      <sub name="unicapgtk_version" link="libunicapgtk-unicapgtk-version.html"/>
+    </sub>
+  </chapters>
+  <functions/>
+</book>

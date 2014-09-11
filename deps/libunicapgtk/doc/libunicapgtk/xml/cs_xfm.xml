@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libunicapgtk-cs-xfm">
+<refmeta>
+<refentrytitle role="top_of_page" id="libunicapgtk-cs-xfm.top_of_page">cs_xfm</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>
+  LIBUNICAPGTK Library
+</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>cs_xfm</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libunicapgtk-cs-xfm.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis></synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libunicapgtk-cs-xfm.description" role="desc">
+<title role="desc.title">Description</title>
+
+</refsect1>
+<refsect1 id="libunicapgtk-cs-xfm.details" role="details">
+<title role="details.title">Details</title>
+
+</refsect1>
+
+</refentry>

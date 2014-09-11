@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<indexdiv>
+<indexdiv><title>B</title>
+<indexentry><primaryie linkends="BE-INVALID-FORMAT:CAPS"><link linkend="BE-INVALID-FORMAT:CAPS">BE_INVALID_FORMAT</link>, macro in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>D</title>
+<indexentry><primaryie linkends="backend-destroy"><link linkend="backend-destroy">backend_destroy</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-destroy-func-t"><link linkend="backend-destroy-func-t">backend_destroy_func_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-display-image"><link linkend="backend-display-image">backend_display_image</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>E</title>
+<indexentry><primaryie linkends="backend-expose-event"><link linkend="backend-expose-event">backend_expose_event</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-expose-event-t"><link linkend="backend-expose-event-t">backend_expose_event_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>F</title>
+<indexentry><primaryie linkends="BACKEND-FLAGS-SCALING-SUPPORTED:CAPS"><link linkend="BACKEND-FLAGS-SCALING-SUPPORTED:CAPS">BACKEND_FLAGS_SCALING_SUPPORTED</link>, macro in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>G</title>
+<indexentry><primaryie linkends="backend-get-flags"><link linkend="backend-get-flags">backend_get_flags</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-get-flags-t"><link linkend="backend-get-flags-t">backend_get_flags_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-get-image-data"><link linkend="backend-get-image-data">backend_get_image_data</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-get-image-data-t"><link linkend="backend-get-image-data-t">backend_get_image_data_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-get-merit"><link linkend="backend-get-merit">backend_get_merit</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-get-merit-func-t"><link linkend="backend-get-merit-func-t">backend_get_merit_func_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>I</title>
+<indexentry><primaryie linkends="backend-init"><link linkend="backend-init">backend_init</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-init-func-t"><link linkend="backend-init-func-t">backend_init_func_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>K</title>
+<indexentry><primaryie linkends="KEYFILE-PATH:CAPS"><link linkend="KEYFILE-PATH:CAPS">KEYFILE_PATH</link>, macro in <link linkend="libunicapgtk-unicapgtk-priv">unicapgtk_priv</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>L</title>
+<indexentry><primaryie linkends="backend-lock"><link linkend="backend-lock">backend_lock</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-lock-t"><link linkend="backend-lock-t">backend_lock_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>M</title>
+<indexentry><primaryie linkends="BACKEND-MERIT-GTK:CAPS"><link linkend="BACKEND-MERIT-GTK:CAPS">BACKEND_MERIT_GTK</link>, macro in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="BACKEND-MERIT-XV:CAPS"><link linkend="BACKEND-MERIT-XV:CAPS">BACKEND_MERIT_XV</link>, macro in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>R</title>
+<indexentry><primaryie linkends="backend-redraw"><link linkend="backend-redraw">backend_redraw</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>S</title>
+<indexentry><primaryie linkends="backend-set-output-size-func-t"><link linkend="backend-set-output-size-func-t">backend_set_output_size_func_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-set-pause-state"><link linkend="backend-set-pause-state">backend_set_pause_state</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-set-pause-state-t"><link linkend="backend-set-pause-state-t">backend_set_pause_state_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-set-scale-to-fit"><link linkend="backend-set-scale-to-fit">backend_set_scale_to_fit</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-set-scale-to-fit-t"><link linkend="backend-set-scale-to-fit-t">backend_set_scale_to_fit_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-size-allocate"><link linkend="backend-size-allocate">backend_size_allocate</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-size-allocate-t"><link linkend="backend-size-allocate-t">backend_size_allocate_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>U</title>
+<indexentry><primaryie linkends="backend-unlock"><link linkend="backend-unlock">backend_unlock</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-unlock-t"><link linkend="backend-unlock-t">backend_unlock_t</link>, user_function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+<indexentry><primaryie linkends="backend-update-image"><link linkend="backend-update-image">backend_update_image</link>, function in <link linkend="libunicapgtk-backend">backend</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

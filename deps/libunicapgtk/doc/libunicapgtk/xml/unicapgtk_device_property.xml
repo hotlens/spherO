@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="UnicapgtkDeviceProperty">
+<refmeta>
+<refentrytitle role="top_of_page" id="UnicapgtkDeviceProperty.top_of_page">UnicapgtkDeviceProperty</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>
+  LIBUNICAPGTK Library
+</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>UnicapgtkDeviceProperty</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="UnicapgtkDeviceProperty.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis></synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="UnicapgtkDeviceProperty.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="UnicapgtkDeviceProperty.details" role="details">
+<title role="details.title">Details</title>
+
+</refsect1>
+
+</refentry>
