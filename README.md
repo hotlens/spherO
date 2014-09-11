@@ -4,8 +4,17 @@ spherO
 Dependencies
 ============
 
-General
--------
+Built the dependencies with:
+
+    autoconf
+    ./configure
+    make
+    sudo make install
+
+Then simply `make test`.
+
+Base
+----
 
     sudo apt-get install build-essential autoconf libgtkmm-2.4-dev
 
